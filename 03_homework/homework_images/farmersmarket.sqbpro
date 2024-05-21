@@ -1,4 +1,4 @@
--- AGGREGATE
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/mishavitvinov/sql/05_sql/farmersmarket.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3698"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/><expanded_item id="4" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainbooth"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="homework_3.sql">-- AGGREGATE
 /* 1. Write a query that determines how many times each vendor has rented a booth 
 at the farmer’s market by counting the vendor booth assignments per vendor_id. */
 SELECT 
@@ -26,7 +26,7 @@ GROUP BY
     c.customer_first_name, 
     c.customer_last_name
 HAVING 
-    SUM(cp.quantity * cp.cost_to_customer_per_qty) > 2000
+    SUM(cp.quantity * cp.cost_to_customer_per_qty) &gt; 2000
 ORDER BY 
     c.customer_last_name, 
     c.customer_first_name;
@@ -39,7 +39,7 @@ HINT: This is two total queries -- first create the table from the original, the
 When inserting the new vendor, you need to appropriately align the columns to be inserted 
 (there are five columns to be inserted, I've given you the details, but not the syntax) 
 
--> To insert the new row use VALUES, specifying the value you want for each column:
+-&gt; To insert the new row use VALUES, specifying the value you want for each column:
 VALUES(col1,col2,col3,col4,col5) 
 */
 DROP TABLE IF EXISTS temp.new_vendor;
@@ -82,3 +82,4 @@ WHERE
 GROUP BY 
     customer_id;
 
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
