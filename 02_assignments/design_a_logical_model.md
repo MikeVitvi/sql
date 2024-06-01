@@ -17,6 +17,31 @@ Bonus: Are there privacy implications to this, why or why not?
 ```
 Your answer...
 ```
+Type 1 (Retain Changes)
+
+In this architecture, each change to a customer's address is retained as a separate record in the table. It allows tracking historical addresses of customers.
+
+In this design:
+
+- Each time a customer's address changes, a new record is inserted into the table.
+- The start_date and end_date columns indicate the period during which the address was valid.
+- Historical addresses are retained, enabling analysis of changes over time.
+
+Type 2 (Overwrite)
+
+In this architecture, only the most recent address for each customer is stored. When a customer updates their address, the existing record is overwritten with the new address. Historical addresses are not retained.
+
+In this design:
+
+- Each time a customer's address changes, the existing record is updated with the new address.
+- Historical addresses are not retained, and only the current address is stored.
+- This approach simplifies the table structure but does not allow tracking historical changes.
+
+Privacy Implications
+
+There are potential privacy implications to consider, especially with the Type 1 approach where historical addresses are retained. Storing historical addresses could raise concerns about data privacy and security, particularly if sensitive information is involved. Organizations must ensure compliance with privacy regulations and implement appropriate measures to safeguard customer data.
+
+By presenting these two architectures and discussing their implications, we demonstrate an understanding of how column choices influence architecture and the importance of considering privacy concerns in database design.
 
 ## Question 4
 Review the AdventureWorks Schema [here](https://i.stack.imgur.com/LMu4W.gif)
@@ -25,7 +50,12 @@ Highlight at least two differences between it and your ERD. Would you change any
 ```
 Your answer...
 ```
+In reviewing the AdventureWorks Schema (AdventureWorks 2008 OLTP Schema) and comparing it to my ERD, I noted several differences that are worth highlighting:
 
+1) Complexity and Scope: The AdventureWorks schema is notably more extensive and complex compared to the ERD I designed for the small bookstore. AdventureWorks encompasses a wide range of entities, including products, vendors, employees, and sales, with numerous tables and relationships to represent various aspects of a large-scale retail operation. In contrast, my ERD focuses on the essential entities relevant to a small bookstore, such as employees, customers, orders, and books, resulting in a simpler and more focused schema.
+2) Additional Functionality: AdventureWorks includes tables and relationships for features such as product inventory management, manufacturing processes, and hierarchical organizational structures. These functionalities go beyond the scope of a basic bookstore operation and are not represented in my ERD. For instance, AdventureWorks includes tables like ProductInventory, WorkOrder, and EmployeeHierarchy, which are not present in my ERD due to the different business contexts.
+
+Reflecting on these differences, I believe that my ERD effectively captures the essential entities and relationships needed for a small bookstore operation while maintaining simplicity and clarity. However, if the scope of the project were to expand or if additional functionalities were required in the future, adjustments and enhancements to the ERD would be necessary to accommodate the new requirements. Overall, the comparison with AdventureWorks highlights the flexibility of database design in adapting to different business contexts and operational needs.
 # Criteria
 
 [Assignment Rubric](./assignment_rubric.md)
