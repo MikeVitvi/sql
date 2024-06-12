@@ -16,6 +16,31 @@ _Hint, search type 1 vs type 2 slowly changing dimensions._
 Bonus: Are there privacy implications to this, why or why not?
 ```
 Your answer...
+Type 1: Overwrite
+
+In this architecture, only the most recent address for each customer is stored. When a customer updates their address, the existing record is overwritten with the new address. Historical addresses are not retained.
+
+In this design:
+- Each time a customer's address changes, the existing record is updated with the new address.
+- Historical addresses are not retained, and only the current address is stored.
+- This approach simplifies the table structure but does not allow tracking historical changes.
+
+Type 2: Retain Changes
+
+In this architecture, each change to a customer's address is retained as a separate record in the table. It allows tracking historical addresses of customers.
+
+In this design:
+- Each time a customer's address changes, a new record is inserted into the table.
+- The start_date and end_date columns indicate the period during which the address was valid.
+- Historical addresses are retained, enabling analysis of changes over time.
+
+Privacy Implications
+
+There are potential privacy implications to consider, especially with the Type 2 approach where historical addresses are retained. Storing historical addresses could raise concerns about data privacy and security, particularly if sensitive information is involved. Organizations must ensure compliance with privacy regulations and implement appropriate measures to safeguard customer data.
+
+By presenting these two architectures and discussing their implications, we demonstrate an understanding of how column choices influence architecture and the importance of considering privacy concerns in database design.
+
+
 ```
 Type 1 (Retain Changes)
 
